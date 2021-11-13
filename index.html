@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Shopping</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <style type="text/css">
+
+    </style>
+</head>
+<body>
+
+ <div class="Cart-Container" id="add_element">
+
+  <div class="Header"><h3 class="Heading">Shopping Cart</h3>
+    <h3>Choose the quantity and checkout</h3>
+    <center><a href="total.html">Checkout</a></center>
+    <button  class="buttonrem" onclick="remove_all()">Remove all</button>
+
+
+
+</div>
+</body>
+
+<script type="text/javascript">
+
+  var add_div = document.getElementById('add_element');
+  const pic_of_book = ["https://jackroy.000webhostapp.com/image/1.jpg", "https://jackroy.000webhostapp.com/image/2.jpg"];
+
+  const book_name = ["Kafka on Shore","Rich Dad Poor Dad"]
+  const book_author = ["Murakkami","Robert Kawasaki"]
+  const book_price = [599,999]
+
+
+for (let i = 0; i < pic_of_book.length; i++) {
+
+if(localStorage.getItem(i)){
+var t = JSON.parse(localStorage.getItem(i))
+
+var quan = t[0]["quantity"]
+}else
+{
+  var quan = 0
+
+}
+
+
+add_div.innerHTML += '</div><div class="Cart-Items"><div class="image-box"><input type="hidden" name="uniq_id_'+i+'" value="'+i+'"/><img src="'+pic_of_book[i]+'" style="height: 120px" /></div><div class="about"><p class="title">'+book_name[i]+'</p><h3 class="subtitle">Author : '+book_author[i]+'</h3><div class="amount">R.s '+book_price[i]+'</div></div>                                                                                              <div class="counter"></div><div class="prices"></div><div class="counter"><button class="btn" onclick="add_'+i+'()" >+</button><p class="count">'+quan+'</p><button class="btn" onclick="deduce_'+i+'()">-</button></div><button class="button" onclick="remove_'+i+'()">Remove</button></div>';
+
+}
+
+
+var save_demanded = [];
+function add_0(){
+
+  if(localStorage.getItem(0)){
+    
+    localStorage.getItem(0)
+    var quan_ = localStorage.getItem(0);
+    var ___quan___ = JSON.parse(quan_);
+    var quan = ___quan___[0]["quantity"]
+    localStorage.removeItem(0);
+    const id_0_save = {book_name_: book_name[0], book_author_: book_author[0], book_price:book_price[0],quantity:quan+1};
+    save_demanded.push(id_0_save);
+    localStorage.setItem(0, JSON.stringify(save_demanded));
+    location.reload();
+
+
+  }else
+  {
+    const id_0_save = {book_name_: book_name[0], book_author_: book_author[0], book_price:book_price[0],quantity:1};
+    save_demanded.push(id_0_save);
+    localStorage.setItem(0, JSON.stringify(save_demanded));
+    location.reload();
+  }
+  
+}
+function deduce_0(){
+    if(localStorage.getItem(0)){
+    localStorage.getItem(0)
+    var quan_ = localStorage.getItem(0);
+    var ___quan___ = JSON.parse(quan_);
+    var quan = ___quan___[0]["quantity"]
+    if(quan==0){
+      alert("To reduce must add in cart first")
+      return
+    }
+    localStorage.removeItem(0);
+    const id_0_save = {book_name_: book_name[0], book_author_: book_author[0], book_price:book_price[0],quantity:quan-1};
+    save_demanded.push(id_0_save);
+    localStorage.setItem(0, JSON.stringify(save_demanded));
+    location.reload();
+
+
+  }else
+  {
+    alert("To reduce must add in cart first")
+    return
+  }
+  
+}
+
+
+function add_1(){
+
+  if(localStorage.getItem(1)){
+    
+    localStorage.getItem(1)
+    var quan_ = localStorage.getItem(1);
+    var ___quan___ = JSON.parse(quan_);
+    var quan = ___quan___[0]["quantity"]
+    localStorage.removeItem(1);
+    const id_1_save = {book_name_: book_name[1], book_author_: book_author[1], book_price:book_price[1],quantity:quan+1};
+    save_demanded.push(id_1_save);
+    localStorage.setItem(1, JSON.stringify(save_demanded));
+    location.reload();
+
+
+  }else
+  {
+    const id_1_save = {book_name_: book_name[1], book_author_: book_author[1], book_price:book_price[1],quantity:1};
+    save_demanded.push(id_1_save);
+    localStorage.setItem(1, JSON.stringify(save_demanded));
+    location.reload();
+    
+  }
+  
+}
+function deduce_1(){
+    if(localStorage.getItem(1)){
+    localStorage.getItem(1)
+    var quan_ = localStorage.getItem(1);
+    var ___quan___ = JSON.parse(quan_);
+    var quan = ___quan___[0]["quantity"]
+    if(quan==0){
+      alert("To reduce must add in cart first")
+      return
+    }
+    localStorage.removeItem(1);
+    const id_0_save = {book_name_: book_name[1], book_author_: book_author[1], book_price:book_price[1],quantity:quan-1};
+    save_demanded.push(id_0_save);
+    localStorage.setItem(1, JSON.stringify(save_demanded));
+    location.reload();
+
+
+  }else
+  {
+    alert("To reduce must add in cart first")
+    return
+  }
+  
+}
+function remove_all(){
+  localStorage.clear();
+  location.reload();
+
+}
+function remove_0(){
+  localStorage.removeItem(0);
+  location.reload();
+
+}function remove_1(){
+  localStorage.removeItem(1);
+  location.reload();
+}
+
+</script>
+</html>

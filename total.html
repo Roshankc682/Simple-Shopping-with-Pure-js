@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Shopping</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <style type="text/css">
+		.center {
+		  margin: auto;
+		  width: 50%;
+		  padding: 10px;
+		}
+    </style>
+</head>
+<body>
+
+ <div class="Cart-Container" id="add_element">
+
+  <div class="Header"><h3 class="Heading">Pay By Esewa</h3>
+  	    <h3 id="total"></h3>
+
+   <a href="index.html">Go to Cart</a>
+		
+</div><div class="Cart-Items">
+			<img class="center" src="https://jackroy.000webhostapp.com/QRCODE.jpg" alt="No QR CODE " width="350" height="500">
+</div>
+
+
+</div>
+</body>
+<script type="text/javascript">
+	var piece = 0
+	for (let i = 0; i <= 1; i++) {
+
+		if(localStorage.getItem(i)){
+		var t = JSON.parse(localStorage.getItem(i))
+		var quantity = t[0]["quantity"]
+		var  one_price = t[0]["book_price"]
+		total = quantity*one_price + piece
+		piece = total
+		var add_price = document.getElementById('total');
+	  	add_price.innerHTML = "R.s "+total;
+		
+		}else{}
+	}
+
+	  
+</script>
+
+
+</html>
